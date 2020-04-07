@@ -1,8 +1,9 @@
-#include<math.h>
 #include<stdio.h>
+#include "atm.h"
+
 
 unsigned int get_money(unsigned short int amount) {
-  int denominations[] = {2000, 500, 100, 50, 20, 10, 5, 1};
+  int_array denominations = denomination_list;
   unsigned int dispensed_notes = 0x00;
   if(amount > 31999)
     return dispensed_notes;
@@ -15,7 +16,7 @@ unsigned int get_money(unsigned short int amount) {
 }
 
 void display_notes(unsigned int notes) {
-  int denominations[] = {2000, 500, 100, 50, 20, 10, 5, 1};
+  int_array denominations = denomination_list;
   unsigned int notes_count;
   for (int i = 0; i < 8; i++)
   {
