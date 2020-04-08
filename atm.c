@@ -9,7 +9,8 @@ unsigned int get_money(unsigned short int amount) {
     return dispensed_notes;
   for (int i = 0; i < 8; i++)
   {
-    dispensed_notes |= (amount /denominations[i])<<((7-i)*4);
+    dispensed_notes <<= 4;
+    dispensed_notes |= (amount /denominations[i]);
     amount = amount % denominations[i];
   }
   return dispensed_notes;
