@@ -21,9 +21,9 @@ void display_notes(unsigned int notes) {
   unsigned int notes_count;
   for (int i = 0; i < 8; i++)
   {
-    notes_count = notes & (0xf<<((7-i)*4));
-    if (notes_count) {
-      printf("%d note(s) of Rs %d\n",notes_count>>((7-i)*4),denominations[i]);
-    }
+    notes_count = (notes & 0xf0000000) >> 28;
+    if (notes_count)
+      printf("%d note(s) of Rs %d\n", notes_count, denominations[i]);
+    notes <<= 4;
   }
 }
